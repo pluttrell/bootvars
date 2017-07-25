@@ -2,7 +2,7 @@
 
 This repo is a test project to demonstrate a bug with the `openjdk:8u131-jre-alpine` docker image. With `openjdk:8u121-jre-alpine` you could supply lower case environment variables, however with `openjdk:8u131-jre-alpine` you cannot.
 
-Sending lower case environment variables is required to get Spring Boot to send to the JavaMail special configuration options for SMTP servers that require certain properties. For example GMAIL's SMTP server requires `spring.mail.properties.mail.smtp.starttls.enable=true`.
+Sending lower case environment variables is important because Spring Boot can use them to configure JavaMail, which requires certain lower case properties. For example GMAIL's SMTP server requires `spring.mail.properties.mail.smtp.starttls.enable=true`. If you convert this to `SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLES=true`, JavaMail will ignore the value.
 
 ## How to Demonstrate the Bug
 
