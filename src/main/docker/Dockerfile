@@ -1,6 +1,6 @@
 FROM openjdk:8u121-jre-alpine
 
-ADD bootvars-0.0.1.jar app.jar
+ADD bootvars.jar app.jar
 
 ENV JAVA_OPTS=""
 
