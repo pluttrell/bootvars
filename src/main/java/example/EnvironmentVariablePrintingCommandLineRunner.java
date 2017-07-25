@@ -10,11 +10,14 @@ public class EnvironmentVariablePrintingCommandLineRunner implements CommandLine
   @Override
   public void run(String... args) throws Exception {
 
-    System.out.printf("Environment variables visible to SpringBoot:");
+    System.out.println("Environment variables visible to SpringBoot:");
+    System.out.println("---------------------------------------------------------------------------------------------");
 
     System.getenv().entrySet().stream()
         .sorted(Comparator.comparing(entry -> entry.getKey().toLowerCase()))
         .forEach(System.out::println);
+
+    System.out.println("---------------------------------------------------------------------------------------------");
 
   }
 
