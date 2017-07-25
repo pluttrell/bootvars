@@ -28,7 +28,7 @@ jar {
 
 docker {
     name 'bootvars'
-    tags '8u131'
+    tags '8u121'
     dockerfile file('src/main/docker/Dockerfile')
     dependsOn build
     files jar
