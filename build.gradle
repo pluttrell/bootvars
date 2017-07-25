@@ -6,6 +6,7 @@ buildscript {
 
 plugins {
 	id 'org.springframework.boot' version '1.5.4.RELEASE'
+    id "com.palantir.docker" version "0.13.0"
 }
 
 apply plugin: 'java'
@@ -22,4 +23,10 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-mail')
 }
 
-
+docker {
+    name 'bootvars'
+    tags project.version
+    dockerfile file('src/main/docker/Dockerfile')
+    dependsOn build
+    files jar
+}
