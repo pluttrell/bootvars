@@ -2,10 +2,12 @@ package example;
 
 import java.util.Properties;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Component;
 
 @Component
+@ConditionalOnProperty(prefix = "spring.mail", name = "host")
 public class JavaMailConfigPrintingCommandLineRunner implements CommandLineRunner {
 
   private final JavaMailSenderImpl javaMailSender;
