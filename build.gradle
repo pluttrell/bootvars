@@ -12,7 +12,6 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 
-version = '0.0.3'
 sourceCompatibility = 1.8
 
 repositories {
@@ -29,7 +28,7 @@ jar {
 
 docker {
     name 'bootvars'
-    tags project.version
+    tags '8u121'
     dockerfile file('src/main/docker/Dockerfile')
     dependsOn build
     files jar
